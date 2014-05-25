@@ -1,20 +1,12 @@
 #pragma once
 
 //packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
- 
+//All packets are encrypted, except 'Hello' packet.
+
+
 #define PROTOCOL_VERSION 0
 
 #define PACKET_BUFFER_SIZE 65536
-
-//4 bytes
-#define PACKET_HEADER_FIELDS \
-  U16 nSize; \
-  U16 nType
-
-typedef struct{
-  U16 nSize; //data size
-  Byte szData[PACKET_BUFFER_SIZE - sizeof(nSize)];
-}Packet;
 
 typedef enum{
     ptHello, //Handshake. Protocol version, Crypto type.
@@ -46,18 +38,31 @@ typedef enum{
  ctCustom, ctAES, ctRSA
 }CryptoType;
 
+//nVerifyCode: accumulate packet bytes, not include 'nVerifyCode' field
+//7 bytes
+#define PACKET_HEADER_FIELDS \
+  U16 nSize; \
+  U16 nType; \
+  U32 nVerifyCode: 24
+
 //12 bytes
 typedef struct{
   PACKET_HEADER_FIELDS;
-  U32 nVerifyCode: 24; //accumulate packet bytes, include header and data, but not include 'nVerifyCode' field
   U32 nCrypto: 8;
   U32 nVersion; //protocol version
 }Packet_Hello;
 
+//8 bytes
+typedef struct{
+  PACKET_HEADER_FIELDS;
+  U32 nReserved: 8;
+}Packet_Bye;
 
+//8 bytes
 typedef struct{
   PACKET_HEADER_FIELDS;
   U32 bSharingFile: 1;
+  U32 bSharingDirectory: 1;
   U32 bSharingDisk: 1;
   U32 bSharingProcessor: 1;
 }Packet_Node;
