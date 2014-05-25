@@ -19,6 +19,11 @@ The goal:
   Safe:
     Packet must be crypted by known method or unknown method(private session);
     File must be copied to many nodes/countries, any broken node/country won't broke the file.
+    All data(Packet, file, file block...) must take verify code.
+  Strong messenger:
+    A particular(maybe all) message/file will be sent to target，even net broken.
+    (packet->phone/laptop/sdcard->airplane/bus->global net)
+    Ever node is a messenger, it will detect a packet if reached target. if not it will send it, retry and retry.
     
   Public(P2P) and Private(Office, Home, Personal...) net.
   Proxy: Pass my data to target node or site.
