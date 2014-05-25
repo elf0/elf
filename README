@@ -1,4 +1,13 @@
 elf
 ===
 
-"elf" is a project for human being.  The goal: Public(P2P) and Private(Office, Home, Personal...) net. Sharing(Files, Disk, CPU, GPU...), Talking/Meeting(Text, Video, Audio... ), Searching(Dictionary, Location...), everything.
+"elf" is a project for human being.
+The goal:
+  Public(P2P) and Private(Office, Home, Personal...) net.
+  Sharing(Files, Disk, CPU, GPU...).
+  Talking/Meeting(Text, Video, Audio... ).
+  Searching:
+    What: What is ***?(Dictionary)
+    Where: Where is ***?(Map/Location, hotel, restaurant, wc, hospital...).
+    Who: Who is ***?(Get me the person's info if it's in net(public/private net))
+    FullText: give me some articles, i'll find it my self.
