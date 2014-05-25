@@ -1,8 +1,14 @@
 #pragma once
 
-//packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
-//All packets are encrypted, except 'Hello' packet.
-
+/*
+packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
+All packets are encrypted, except 'Hello' packet.
+Process order:
+  1. Read 2 bytes to size
+  2. Read size bytes to buffer.
+  3. Verify data.
+  4. Decript data.
+*/
 
 #define PROTOCOL_VERSION 0
 
