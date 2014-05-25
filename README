@@ -6,15 +6,15 @@ Everyone can join us.
 We need you, human being need you!
 It's a net, a super computer, a huge file system, a dictionary, a map, a help system...
 It's everything!
-Everyone can find one application for self.
+Everyone can find one application for oneself.
 Every device(pc, phone, disk, sdcard...) will be a node in the net.
 It's based a anonymous, crypted, distributed network.
-The network never broke, every node can be store/transfer info. 
+The network never be broken, packet will be transfered automatically by any possible device(wifi, bluetooth, 3G, satellite, disk, sdcard...).
 Maybe Wifi/Bluetooth can connect some nodes, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
 
 The goal:
   Anonymous:
-    Every node don't know passing packet's content and source, only target.
+    Every node don't know passing packet's content and source, only know target.
     Source node location(ip...) must not appear at target peer, even source country.
     Random node/country should be a proxy for transfering a packet/session.
   Safe:
@@ -23,7 +23,7 @@ The goal:
     All data(Packet, file, file block...) must take verify code.
     Fake packet will be checked out.
   Strong messenger:
-    A particular(maybe all) message/file will be sent to target，even net broken.
+    A particular(maybe all) message/file will be sent to target，even net is broken.
     (packet->phone/laptop/sdcard->airplane/bus->global net)
     Ever node is a messenger, it will detect a packet if reached target. if not it will send it, retry and retry.
     
