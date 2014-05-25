@@ -2,12 +2,15 @@ elf
 ===
 
 "elf" is a project for human being.
-Everyone can join us. we need you, human being need you!
+Everyone can join us.
+We need you, human being need you!
 It's a net, a super computer, a huge file system, a dictionary, a map, a help system...
 It's everything!
 Everyone can find one application for self.
-It's based a anonymous, crypted, distributed network.
 Every machine and person will be a node in the net.
+It's based a anonymous, crypted, distributed network.
+The network nerver broke, every node can be store/transfer info, even people. 
+Maybe Wifi/Bluetooth can connect some nodes, be a non-real-time local net. And info will be upload to the global net when node connected.
 
 The goal:
   Public(P2P) and Private(Office, Home, Personal...) net.
@@ -16,7 +19,7 @@ The goal:
   Talking/Meeting(Text, Video, Audio... ).
   Searching:
     What: What is ***?(Dictionary)
-    Where: Where is ***?(Map/Location, hotel, restaurant, wc, hospital...).
+    Where: Where is ***?(Map/Location, hotel, restaurant, WC, bank, hospital...).
     Who: Who is ***?(Get me the person's info if it's in net(public/private net))
     FullText: give me some articles, i'll find it my self.
   SOS: Help me! I'm in danger. For prefined nodes(family, friends, polices...), or every one who can help me.
