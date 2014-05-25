@@ -11,18 +11,18 @@ enum PacketType{
     ptMessage, //Text chat
     ptDicMessage, //Dictionary-based chat
 //File
-    GetFile, //Download file
-    StoreFile, //Store my file in net. File must split into many blocks, and store at many nodes, many countries. Some nodes/countries broke won't lost data.
-    FindFile, //Find file in net
-    FileMeta, //file name, size, last modified time...
-    FileData,
+    ptGetFile, //Download file
+    ptStoreFile, //Store my file in net. File must split into many blocks, and store at many nodes, many countries. Some nodes/countries broke won't lost data.
+    ptFindFile, //Find file in net
+    ptFileMeta, //file name, size, last modified time...
+    ptFileData,
 //Directory for file system
-    DirectoryMeta, //directory name, size, last modified time...
-    DirectoryData,
+    ptDirectoryMeta, //directory name, size, last modified time...
+    ptDirectoryData,
 //Real-time Stream
-    VideoMeta,
-    VideoData,
-    AudioMeta,
-    AudioData
+    ptVideoMeta,
+    ptVideoData,
+    ptAudioMeta,
+    ptAudioData
 };
 
