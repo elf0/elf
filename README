@@ -13,7 +13,7 @@ The network never be broken, packet will be transfered automatically by any poss
 Wifi/Bluetooth can connect some nodes, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
 Packets on disk, sdcard will be automatically upload to global net by software.
 All codes should be published into public domain.
-Everyone can implement this project.
+Anyone can implement this project.
 
 The goal:
   Anonymous:
