@@ -10,10 +10,11 @@ Everyone can find one application for self.
 Every machine and person will be a node in the net.
 It's based a anonymous, crypted, distributed network.
 The network never broke, every node can be store/transfer info, even people. 
-Maybe Wifi/Bluetooth can connect some nodes, be a non-real-time local net. And info will be upload to the global net when node connected.
+Maybe Wifi/Bluetooth can connect some nodes, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
 
 The goal:
   Anonymous:
+    Every node don't know passing packet's content and source, only target.
     Source node location(ip...) must not appear at target peer, even source country.
     Random node/country should be a proxy for transfering a packet/session.
   Safe:
