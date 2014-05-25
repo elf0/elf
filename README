@@ -17,7 +17,7 @@ The goal:
     Source node location(ip...) must not appear at target peer, even source country.
     Random node/country should be a proxy for transfering a packet/session.
   Safe:
-    Data must be crypted by known method or unknown method(private session);
+    Packet must be crypted by known method or unknown method(private session);
     File must be copied to many nodes/countries, any broken node/country won't broke the file.
     
   Public(P2P) and Private(Office, Home, Personal...) net.
