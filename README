@@ -27,14 +27,14 @@ The goal:
     A particular(maybe all) message/file will be sent to target，even net is broken.
     (packet->phone/laptop/sdcard->airplane/bus->global net)
     Ever node is a messenger, it will detect a packet if reached target. if not it will send it, retry and retry.
-    
-  Public(P2P) and Private(Office, Home, Personal...) net.
-  Proxy: Pass my data to target node or site.
-  Sharing(Files, Disk, CPU, GPU...).
-  Talking/Meeting(Text, Video, Audio... ).
-  Searching:
-    What: What is ***?(Dictionary)
-    Where: Where is ***?(Map/Location, hotel, restaurant, WC, bank, hospital...).
-    Who: Who is ***?(Get me the person's info if it's in net(public/private net))
-    FullText: give me some articles, i'll find it my self.
-  SOS: Help me! I'm in danger. For prefined nodes(family, friends, polices...), or every one who can help me.
+  Applications:
+    Public(P2P) and Private(Office, Home, Personal...) net.
+    Proxy: Pass my data to target node or site.
+    Sharing(Files, Disk, CPU, GPU...).
+    Talking/Meeting(Text, Video, Audio... ).
+    Searching:
+      What: What is ***?(Dictionary)
+      Where: Where is ***?(Map/Location, hotel, restaurant, WC, bank, hospital...).
+      Who: Who is ***?(Get me the person's info if it's in net(public/private net))
+      FullText: give me some articles, i'll find it my self.
+    SOS: Help me! I'm in danger. For prefined nodes(family, friends, polices...), or every one who can help me.
