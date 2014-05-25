@@ -9,10 +9,17 @@ It's everything!
 Everyone can find one application for self.
 Every machine and person will be a node in the net.
 It's based a anonymous, crypted, distributed network.
-The network nerver broke, every node can be store/transfer info, even people. 
+The network never broke, every node can be store/transfer info, even people. 
 Maybe Wifi/Bluetooth can connect some nodes, be a non-real-time local net. And info will be upload to the global net when node connected.
 
 The goal:
+  Anonymous:
+    Source node location(ip...) must not appear at target peer, even source country.
+    Random node/country should be a proxy for transfering a packet/session.
+  Safe:
+    Data must be crypted by known method or unknown method(private session);
+    File must be copied to many nodes/countries, any broken node/country won't broke the file.
+    
   Public(P2P) and Private(Office, Home, Personal...) net.
   Proxy: Pass my data to target node or site.
   Sharing(Files, Disk, CPU, GPU...).
