@@ -1,6 +1,13 @@
 #pragma once
 
-enum PacketType{
+typedef struct{
+  U16 nSize;//packet size, not include nSize field
+  U16 nType;
+  U32 nVerifyCode;
+  Byte szData[65528];
+}Packet;
+
+typedef enum{
     ptHello, //Handshake. Protocol version, Crypto type.
     ptBye, //Remote can close connection or session now
     ptDescription, //This node'description.
@@ -24,5 +31,4 @@ enum PacketType{
     ptVideoData,
     ptAudioMeta,
     ptAudioData
-};
-
+}PacketType;
