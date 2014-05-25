@@ -7,7 +7,7 @@ enum PacketType{
     ptProxy, //Pass my data to target node or site.
     ptCode, //Help me execute the code/function, and return result to me.
     ptLocation, //This node location(GPS). Usually for private session.
-    ptSOS, //Help me! I'm in danger. For prefined nodes session(family, friends, polices...), or every one who can help me.
+    ptSOS, //Help me! I'm in danger. For prefined nodes(family, friends, polices...), or every one who can help me.
     ptMessage, //Text chat
     ptDicMessage, //Dictionary-based chat
 //File

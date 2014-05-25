@@ -1,9 +1,12 @@
 elf
 ===
 
-"elf" is a project for human being.
+"elf" is a project for human being. Everyone can join us.
+It's based a anonymous, crypted, distributed network.
+
 The goal:
   Public(P2P) and Private(Office, Home, Personal...) net.
+  Proxy: Pass my data to target node or site.
   Sharing(Files, Disk, CPU, GPU...).
   Talking/Meeting(Text, Video, Audio... ).
   Searching:
@@ -11,3 +14,4 @@ The goal:
     Where: Where is ***?(Map/Location, hotel, restaurant, wc, hospital...).
     Who: Who is ***?(Get me the person's info if it's in net(public/private net))
     FullText: give me some articles, i'll find it my self.
+  SOS: Help me! I'm in danger. For prefined nodes(family, friends, polices...), or every one who can help me.
