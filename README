@@ -8,9 +8,9 @@ It's a net, a super computer, a huge file system, a dictionary, a map, a help sy
 It's everything!
 Everyone can find one application for oneself.
 Every device(pc, phone, disk, sdcard...) will be a node in the net.
-It's based a anonymous, crypted, distributed network.
+It's a anonymous, crypted, packet-based, distributed network.
 The network never be broken, packet will be transfered automatically by any possible device(wifi, bluetooth, 3G, satellite, disk, sdcard...).
-Wifi/Bluetooth can connect some nodes, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
+Wifi/Bluetooth can connect some nodes temporarily, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
 Packets on disk, sdcard will be automatically upload to global net by software.
 All codes should be published into public domain.
 Anyone can implement this project.
