@@ -10,7 +10,7 @@ Everyone can find one application for oneself.
 Every device(pc, phone, disk, sdcard...) will be a node in the net.
 It's based a anonymous, crypted, distributed network.
 The network never be broken, packet will be transfered automatically by any possible device(wifi, bluetooth, 3G, satellite, disk, sdcard...).
-Maybe Wifi/Bluetooth can connect some nodes, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
+Wifi/Bluetooth can connect some nodes, be a non-real-time local dynamic net. And info will be upload to the global net when node connected.
 
 The goal:
   Anonymous:
