@@ -20,6 +20,7 @@ The goal:
     Packet must be crypted by known method or unknown method(private session);
     File must be copied to many nodes/countries, any broken node/country won't broke the file.
     All data(Packet, file, file block...) must take verify code.
+    Fake packet will be checked out.
   Strong messenger:
     A particular(maybe all) message/file will be sent to target，even net broken.
     (packet->phone/laptop/sdcard->airplane/bus->global net)
