@@ -44,11 +44,16 @@ typedef enum{
  ctCustom, ctAES, ctRSA
 }CryptoType;
 
+
+//nPostTime: packet post time
+//nYear: Proxy node must drop a packet, if packet's nYear is 2022 when 2023(expired).
 //nVerifyCode: accumulate packet bytes, not include 'nVerifyCode' field
 //7 bytes
 #define PACKET_HEADER_FIELDS \
   U16 nSize; \
   U16 nType; \
+  U32 nPostTime; \
+  U32 nLifeTime; \
   U32 nVerifyCode: 24
 
 //12 bytes
