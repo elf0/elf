@@ -27,16 +27,20 @@ The goals:
     Source node location(ip...) must not appear at target peer, even source country.
     Random node/country should be a proxy for transfering a packet/session.
   Safe:
-    Packet must be crypted by known method or unknown method(private session);
+    Packet must be encrypted by known method or unknown method(private session);
     File must be copied to many nodes/countries, any broken node/country won't broke the file.
     All data(Packet, file, file block...) must take verify code.
     Fake packet will be checked out.
     Can we design a method, a packet will be decrypt after a time? A time password?
   Node identify:
+    Node id should be unique.
+    Identify a node, even after many years.
+    Fake node will be checked out.
     Peers known password can be used for identification and communication.
     Each session will left a dynamic password for next session. It will be used for identification and communication.
     Nodes can use NodeId:Password for session, password can be last session's dynamic one, or manual set known password.
   Strong messenger:
+    If we don't know target location/ip, packet will be transfered in 'elf' net, 'elf' will find target by NodeId.
     A particular(maybe all) message/file will be sent to target，even net is broken.
     (packet->phone/laptop/sdcard->airplane/bus->global net)
     Ever node is a messenger, it will detect a packet if reached target. if not it will send it, retry and retry.
