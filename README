@@ -15,6 +15,7 @@ Wifi can connect neighbour nodes one by one(Device support this?), be a big loca
 Packets on disk, sdcard will be automatically upload to global net by software.
 All codes should be published into public domain.
 Anyone can implement this project.
+Let old(http, ftp, emule...) join 'elf' net?Node save file's url and description, the requester find the file from the node, download from another http server.
 
 The goal:
   Hardware enviroment:
