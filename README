@@ -50,6 +50,9 @@ The goals:
     Ever node is a messenger, it will detect a packet if reached target. if not it will send it, retry and retry.
   Life Time:
     A packet will be droped by proxy node, if it's expired.
+  Grouping:
+    Every 256 node be a group.
+    Need a group id?
   Applications:
     Public(P2P) and Private(Office, Home, Personal...) net.
     Proxy: Pass my data to target node or site.
