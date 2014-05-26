@@ -23,9 +23,13 @@ The goals:
     We need a free, independent, fast net hardware enviroment.
     Can we use wifi? Or develop p2p/one-by-one hardware to implement it?
   Anonymous:
-    Every node don't know passing packet's content and source, only know target.
-    Source node location(ip...) must not appear at target peer, even source country.
-    Random node/country should be a proxy for transfering a packet/session.
+    Hide source:
+      Every node don't know passing packet's content and source, only know target.
+      Source node location(ip...) must not appear at target peer, even source country.
+      Random node/country should be a proxy for transfering a packet/session.
+    Hide target:
+      Transfer by NodeId, Taget received a packet and tranfer it to another.
+      Mybe we can post a packet to target country/group to reduce cost.
   Safe:
     Packet must be encrypted by known method or unknown method(private session);
     File must be copied to many nodes/countries, any broken node/country won't broke the file.
