@@ -15,23 +15,41 @@ Process order:
 #define PACKET_BUFFER_SIZE 65536
 
 typedef enum{
-    pktHello, //Handshake. Protocol version, Crypto type.
-    pktBye, //Can close connection or session now
+//Handshake
+  pktHello, //Handshake. Protocol version, Crypto type.
+  pktBye, //Can close connection or session now
+//security: anonymous, encryption, authentication
+  pktProxy, //Pass data to target node or site.
+//chat
+  pktMakeFriends,
+  pktCreatChatRoom,
+  pktMessage, pktMessage_DicVersion, pktMessage_Dic, pktMessage_DicCustom,
+  pktImage,
+  pktAudio,
+  pktVideo,
+  pktFile,
+//broadcast
+  pktBroadcast_CreatGroup,
+  pktBroadcast_Join,
+  pktBroadcast_Leave,
+//file sharing
+  pktFile_Get,//Download file
+  pktFile_Store, //Store my file in net. File must split into many blocks, and store at many nodes, many countries. Some nodes/countries broke won't lost data.
+  pktFile_Create,//Create a file in current dir
+  pktFile_Delete,//Delete a file in current dir
+  pktFile_Find, //Find file in net
+  pktFile_Meta, //file name, size, last modified time...
+  pktFile_Data,
+  pktDirectory_Get, pktDirectory_Create, pktDirectory_Delete, pktDirectory_Child, pktDirectory_Parent
+//distributed computing
+  pktCode, //Help me execute the code/function, and return result to me.
+
+//////////////
     pktNode, //descript node
-    pktProxy, //Pass data to target node or site.
-    pktCode, //Help me execute the code/function, and return result to me.
     pktLocation, //This node location(GPS). Usually for private session.
     pktSOS, //Help me! I'm in danger. Send to prefined nodes(family, friends, polices...), or every one who can help me.
-//chat
-    pktMakeFriends,
     pktMessage, //Text chat
     pktDicMessage, //Dictionary-based chat
-//File
-    pktGetFile, //Download file
-    pktStoreFile, //Store my file in net. File must split into many blocks, and store at many nodes, many countries. Some nodes/countries broke won't lost data.
-    pktFindFile, //Find file in net
-    pktFileMeta, //file name, size, last modified time...
-    pktFileData,
 //Directory for file system
     pktDirectoryMeta, //directory name, size, last modified time...
     pktDirectoryData,
