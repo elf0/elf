@@ -96,15 +96,15 @@ typedef enum{
 }CryptoType;
 
 
-//nPostTime: packet post time
-//nYear: Proxy node must drop a packet, if packet's nYear is 2022 when 2023(expired).
+//nTimeStamp: seconds from 1970-01-01 00:00:00
+//nExpire: Proxy node must drop the packet, if now - nTimeStamp > nExpire.
 //nVerifyCode: accumulate packet bytes, not include 'nVerifyCode' field
 //7 bytes
 #define PACKET_HEADER_FIELDS \
   U16 nSize; \
   U16 nType; \
-  U32 nPostTime; \
-  U32 nLifeTime; \
+  U32 nTimeStamp; \
+  U32 nExpire; \
   U32 nVerifyCode: 24
 
 //12 bytes
@@ -119,6 +119,12 @@ typedef struct{
   PACKET_HEADER_FIELDS;
   U32 nReserved: 8;
 }Packet_Bye;
+
+typedef struct{
+  PACKET_HEADER_FIELDS;
+  U32 nReserved: 8;
+  U8 nTimes;// if not 0, select a random(can't be target) node to send, and reduce 1
+}Packet_Proxy;
 
 //8 bytes
 typedef struct{
