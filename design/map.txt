@@ -4,4 +4,5 @@ Objects: Point, Line, Area, River, Lake, Way, Building
 Applications:
   Download map by BoundingBox or city.
   Get a text description(Country/Province/City/Street..) by a coordinate.
-  Find a object nearby a coordinate.
+  Find nearby objects.
+  Generate game map from the real map.
