@@ -65,7 +65,10 @@ typedef enum{
   pktFind_Hotel,
   pktFind_Restaurant,
   pktFind_Blood, //medical
-
+//map
+  pktMap_Get, //Download from the net
+  pktMap_Add, //Upload a object
+  pktMap_Delete, //Delete a object
 //distributed computing
   pktCode, //Help me execute the code/function, and return result to me.
 
