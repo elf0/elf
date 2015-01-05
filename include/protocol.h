@@ -6,6 +6,7 @@
 
 /*
  The "elf" net is a abstract and distributed server.
+ Every node is part of it.
 
 packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
 All packets are encrypted, except 'Hello' packet.
