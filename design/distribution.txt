@@ -1,0 +1,6 @@
+Global Object:
+  How store it?
+  How get it?
+  How prevent damage?
+Damage prevention:
+  Vote?
