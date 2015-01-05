@@ -1,0 +1,2 @@
+The map in "elf" is distributed map.
+Everyone can add/delete/modify it.
