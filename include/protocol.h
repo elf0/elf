@@ -42,6 +42,7 @@ typedef enum{
   pktFile_Create,//Create a file in current dir
   pktFile_Delete,//Delete a file in current dir
   pktFile_Find, //Find file in current dir
+  pktFile_FullTextFind, //Find file in current dir
   pktFile_Meta, //file name, size, last modified time...
   pktFile_Data,
   pktDirectory_Get, pktDirectory_Create, pktDirectory_Delete, pktDirectory_Child, pktDirectory_Parent
