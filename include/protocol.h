@@ -22,6 +22,8 @@ typedef enum{
     pktCode, //Help me execute the code/function, and return result to me.
     pktLocation, //This node location(GPS). Usually for private session.
     pktSOS, //Help me! I'm in danger. Send to prefined nodes(family, friends, polices...), or every one who can help me.
+//chat
+    pktMakeFriends,
     pktMessage, //Text chat
     pktDicMessage, //Dictionary-based chat
 //File
