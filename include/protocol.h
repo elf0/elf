@@ -24,9 +24,10 @@ typedef enum{
   pktBye, //Can close connection or session now
 //security: anonymous, encryption, authentication
   pktProxy, //Pass data to target node or site.
+  pktMakeFriends, //remember this node, give some permissions
 //chat
-  pktMakeFriends,
-  pktCreatChatRoom,
+  pktChat_ExchangeDictionary, //Exchange custom dictionary
+  pktChat_CreatGroup,
   pktMessage, pktMessage_DicVersion, pktMessage_Dic, pktMessage_DicCustom,
   pktImage,
   pktAudio,
@@ -37,6 +38,7 @@ typedef enum{
   pktBroadcast_Join,
   pktBroadcast_Leave,
 //file sharing
+//file system
   pktFile_Get,//Download file
   pktFile_Store, //Store my file in net. File must split into many blocks, and store at many nodes, many countries. Some nodes/countries broke won't lost data.
   pktFile_Create,//Create a file in current dir
@@ -46,7 +48,7 @@ typedef enum{
   pktFile_Meta, //file name, size, last modified time...
   pktFile_Data,
   pktDirectory_Get, pktDirectory_Create, pktDirectory_Delete, pktDirectory_Child, pktDirectory_Parent
-//Find
+//Find everything in net
   pktFind_File,
   pktFind_Image,
   pktFind_Video,
