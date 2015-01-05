@@ -5,6 +5,8 @@
 //EMail: elf198012@gmail.com
 
 /*
+ The "elf" net is a abstract server.
+
 packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
 All packets are encrypted, except 'Hello' packet.
 Process order:
@@ -66,7 +68,7 @@ typedef enum{
   pktFind_Restaurant,
   pktFind_Blood, //medical
 //map
-  pktMap_Get, //Download from the net
+  pktMap_Get, //Download a rectange range
   pktMap_Add, //Upload a object
   pktMap_Delete, //Delete a object
 //distributed computing
