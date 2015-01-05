@@ -26,12 +26,13 @@ typedef enum{
   pktProxy, //Pass data to target node or site.
   pktMakeFriends, //remember this node, give some permissions
 //chat
+  pktChat_Hello, //p2p chat begin
   pktChat_DicionaryVersion,
   pktChat_ExchangeDictionary, //Exchange custom dictionary
   pktChat_CreatGroup,
-  pktChat_Message,
-  pktChat_Dictionary, //message using standard dictionary(just id)
-  pktChat_Dictionary_Custom, //message using custom dictionary(just id)
+  pktChat_Message, //text message
+  pktChat_Dictionary, //dictionary message(id), using standard dictionary
+  pktChat_Dictionary_Custom, //dictionary message(id), using custom dictionary
   pktImage,
   pktAudio,
   pktVideo,
