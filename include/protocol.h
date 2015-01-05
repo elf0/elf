@@ -25,6 +25,8 @@ typedef enum{
 //security: anonymous, encryption, authentication
   pktProxy, //Pass data to target node or site.
   pktMakeFriends, //remember this node, give some permissions
+//message dictionary
+  pktMessageDictionary_Sync, //sync the newest message dictionary
 //chat
   pktChat_Hello, //p2p chat: languages(i can [read, write, hear, speak])
   pktChat_DicionaryVersion,
