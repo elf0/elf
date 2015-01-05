@@ -5,7 +5,7 @@
 //EMail: elf198012@gmail.com
 
 /*
- The "elf" net is a abstract server.
+ The "elf" net is a abstract and distributed server.
 
 packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
 All packets are encrypted, except 'Hello' packet.
