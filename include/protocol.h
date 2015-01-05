@@ -51,6 +51,7 @@ typedef enum{
   pktFind_Video,
   pktFind_Audio,
   pktFind_Person,
+  pktFind_PersonPicture,
   pktFind_Hotel,
   pktFind_Restaurant,
   pktFind_Blood, //medical
