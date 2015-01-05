@@ -56,7 +56,8 @@ typedef enum{
   pktDirectory_Get, pktDirectory_Create, pktDirectory_Delete, pktDirectory_Child, pktDirectory_Parent
 //Find everything in net
   pktFind_File,
-  pktFind_Image,
+  pktFind_Novel,
+  pktFind_Picture,
   pktFind_Video,
   pktFind_Audio,
   pktFind_Person,
