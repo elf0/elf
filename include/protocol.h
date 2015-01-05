@@ -1,5 +1,9 @@
 #pragma once
 
+//License: Public Domain
+//Author: elf
+//EMail: elf198012@gmail.com
+
 /*
 packet: | size(2 bytes) | type(2 bytes) | verify code(3 bytes) | data(size - 5 bytes) |
 All packets are encrypted, except 'Hello' packet.
@@ -28,8 +32,8 @@ typedef enum{
   pktAudio,
   pktVideo,
   pktFile,
-//broadcast
-  pktBroadcast_CreatGroup,
+//broadcast: message, video, audio, advertisement
+  pktBroadcast_Creat, //Create a broadcast group
   pktBroadcast_Join,
   pktBroadcast_Leave,
 //file sharing
@@ -41,6 +45,16 @@ typedef enum{
   pktFile_Meta, //file name, size, last modified time...
   pktFile_Data,
   pktDirectory_Get, pktDirectory_Create, pktDirectory_Delete, pktDirectory_Child, pktDirectory_Parent
+//Find
+  pktFind_File,
+  pktFind_Image,
+  pktFind_Video,
+  pktFind_Audio,
+  pktFind_Person,
+  pktFind_Hotel,
+  pktFind_Restaurant,
+  pktFind_Blood, //medical
+
 //distributed computing
   pktCode, //Help me execute the code/function, and return result to me.
 
