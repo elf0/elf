@@ -1,5 +1,9 @@
 The map in "elf" is distributed map.
 Everyone can add/delete/modify it.
+
+Distribution:
+  All data Should/Must distribute to all countries.
+
 Objects: Point, Line, Area, River, Lake, Way, Building
 Applications:
   Download map by BoundingBox or city.

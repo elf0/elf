@@ -4,3 +4,7 @@ Global Object:
   How prevent damage?
 Damage prevention:
   Vote?
+
+Distribution:
+  All data Should/Must distribute to all countries.
+
