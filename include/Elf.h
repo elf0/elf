@@ -13,15 +13,29 @@ typedef U64 Version;
 typedef U64 ClassId;
 typedef U64 ObjectId;
 
-enum Class{
-    Misc,
-    ComputingDevice,
+enum Class0{
+    Digital = 0, Real = 1
+};
+
+enum ClassDigital{
+    Misc = 0,
     Picture,
     Video,
     Audio,
     Book,
+};
+
+enum ClassReal{
+    Misc = 0,
+    StorageDevice,
+    ComputingDevice,
+    Sensor,
+    CommunicationDevice,
+    Vehicle,
+//    Car,
+    Picture,
+    Book,
     House,
-    Car,
 };
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
