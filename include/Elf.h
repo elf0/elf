@@ -42,7 +42,9 @@ enum RealType{
     Book,
     Plant,
     Animal,
-    Human
+    Human,
+    Female,
+    Male,
 };
 
 typedef U64 Class;
