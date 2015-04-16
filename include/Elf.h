@@ -27,6 +27,11 @@ void Elf_Restaurant(Elf *pElf);
 void Elf_Toilet(Elf *pElf);
 void Elf_Bank(Elf *pElf);
 void Elf_PoliceStation(Elf *pElf);
+//Picture
+void Elf_UploadPicture(Elf *pElf, const Char *pPathName, U16 nBytes);
+//Video
+void Elf_UploadVideo(Elf *pElf, const Char *pPathName, U16 nBytes);
+//Map
 void Elf_DownloadMap(Elf *pElf, RectangleF32 *pRect);
 void Elf_DownloadMapOfCity(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_DownloadMapOfCountry(Elf *pElf, const Char *pName, U16 nBytes);
