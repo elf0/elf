@@ -71,6 +71,7 @@ void Elf_Book_Biology_Search(Elf *pElf);
 void Elf_Book_Medicine_Search(Elf *pElf);
 void Elf_Book_Cooking_Search(Elf *pElf);
 void Elf_Novel_Search(Elf *pElf);
+void Elf_Comic_Search(Elf *pElf);
 
 //Location
 void Elf_Where(Elf *pElf, const Char *pKey, U16 nBytes);
