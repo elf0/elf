@@ -45,6 +45,13 @@ void Elf_3DModel_Plant_Search(Elf *pElf);
 void Elf_3DModel_Animal_Search(Elf *pElf);
 void Elf_3DModel_Building_Search(Elf *pElf);
 
+//Audio
+void Elf_Audio_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Audio_Music_Search(Elf *pElf);
+void Elf_Audio_Song_Search(Elf *pElf);
+void Elf_Audio_XXX_Search(Elf *pElf);
+void Elf_Audio_Story_Search(Elf *pElf);
+
 //Map
 void Elf_Map_Download(Elf *pElf, RectangleF32 *pRect);
 void Elf_Map_City_Download(Elf *pElf, const Char *pName, U16 nBytes);
