@@ -5,7 +5,13 @@
 //Author: elf
 //EMail: elf198012@gmail.com
 
+#include "Type.h"
+
 typedef struct Elf_s Elf;
+
+typedef U64 Version;
+typedef U64 ClassId;
+typedef U64 ObjectId;
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
 void Elf_SetName(Elf *pElf, const Char *pName, U16 nBytes);
