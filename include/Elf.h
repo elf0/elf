@@ -82,7 +82,8 @@ typedef struct{
 typedef struct{
     U64 bReal: 1;//Must be 1
     U64 bLiving: 1;
-    U64 nType: 62;
+    U64 bArtificial: 1;
+    U64 nType: 61;
 }RealClass;
 
 //Example: Human
