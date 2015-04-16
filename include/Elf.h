@@ -55,11 +55,13 @@ typedef struct{
     U64 bAudio: 1;
     U64 bText: 1;
     U64 bCode: 1;
+    U64 nType: 59;
 }DigitalClass;
 
 typedef struct{
     U64 bReal: 1;//Must be 1
     U64 bLiving: 1;
+    U64 nType: 62;
 }RealClass;
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
