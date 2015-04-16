@@ -22,6 +22,10 @@ enum ClassDigital{
     Picture,
     Video,
     Audio,
+    Text,
+    PictureText,
+    VideoAudio,
+    VideoAudioText,
     Book,
 };
 
@@ -36,7 +40,27 @@ enum ClassReal{
 //    Car,
     Picture,
     Book,
+    Plant,
+    Animal,
+    Human
 };
+
+typedef struct{
+    U64 bReal: 1;
+}Class;
+
+typedef struct{
+    U64 bReal: 1;//Must be 0
+    U64 bImage: 1;
+    U64 bAudio: 1;
+    U64 bText: 1;
+    U64 bCode: 1;
+}DigitalClass;
+
+typedef struct{
+    U64 bReal: 1;//Must be 1
+    U64 bLiving: 1;
+}RealClass;
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
 void Elf_SetName(Elf *pElf, const Char *pName, U16 nBytes);
