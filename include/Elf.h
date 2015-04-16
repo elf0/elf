@@ -20,9 +20,11 @@ void Elf_PlayMusic(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_PlayMovie(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_PlayGame(Elf *pElf, const Char *pName, U16 nBytes);
 //Picture
-void Elf_UploadPicture(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Picture_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Picture_SearchGirls(Elf *pElf);
 //Video
-void Elf_UploadVideo(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Video_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Video_SearchXXX(Elf *pElf);
 //Map
 void Elf_DownloadMap(Elf *pElf, RectangleF32 *pRect);
 void Elf_DownloadMapOfCity(Elf *pElf, const Char *pName, U16 nBytes);
