@@ -16,7 +16,7 @@ void Elf_Disconnect(Elf *pElf, Net *pNet);
 void Elf_What(Elf *pElf, const Char *pKey, U16 nBytes);
 void Elf_Where(Elf *pElf, const Char *pKey, U16 nBytes);
 void Elf_Locate(Elf *pElf, const Location *pLocation);
-void Elf_LocateNearest();
+void Elf_LocateNearest(Elf *pElf, const Char *pKey, U16 nBytes);
 void Elf_PlayMusic(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_PlayMovie(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_Weather(Elf *pElf);
