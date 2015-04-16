@@ -31,11 +31,11 @@ enum ClassReal{
     ComputingDevice,
     Sensor,
     CommunicationDevice,
+    House,
     Vehicle,
 //    Car,
     Picture,
     Book,
-    House,
 };
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
