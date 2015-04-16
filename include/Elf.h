@@ -41,6 +41,7 @@ void Elf_PoliceStation(Elf *pElf);
 void Elf_Service_Food(Elf *pElf);
 void Elf_Service_Water(Elf *pElf);
 void Elf_Service_CallGirl(Elf *pElf);
+void Elf_Service_Police(Elf *pElf);
 
 #endif //ELF_H
 
