@@ -53,11 +53,11 @@ typedef U64 Class;
 
 typedef struct{
     U64 bReal: 1;//Must be 0
+    U64 bCode: 1;//Can be executed by elf
     U64 bImage: 1;//Picture, Video
     U64 bAudio: 1;
     U64 bText: 1;//UTF-8, UTF-16
-    U64 bCode: 1;//Can be executed by elf
-    U64 bOther: 1;
+    U64 bOther: 1;//Custom
     U64 nType: 58;
 }DigitalClass;
 
