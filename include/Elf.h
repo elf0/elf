@@ -19,6 +19,7 @@ void Elf_Locate(Elf *pElf, const Location *pLocation);
 void Elf_LocateNearest(Elf *pElf, const Char *pKey, U16 nBytes);
 void Elf_PlayMusic(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_PlayMovie(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_PlayGame(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_Weather(Elf *pElf);
 void Elf_Traffic(Elf *pElf);
 void Elf_Hotel(Elf *pElf);
