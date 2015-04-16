@@ -37,6 +37,10 @@ void Elf_Restaurant(Elf *pElf);
 void Elf_Toilet(Elf *pElf);
 void Elf_Bank(Elf *pElf);
 void Elf_PoliceStation(Elf *pElf);
+//Service
+void Elf_Service_Food(Elf *pElf);
+void Elf_Service_Water(Elf *pElf);
+void Elf_Service_CallGirl(Elf *pElf);
 
 #endif //ELF_H
 
