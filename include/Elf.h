@@ -32,10 +32,10 @@ void Elf_Video_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
 void Elf_Video_XXX_Search(Elf *pElf);
 void Elf_Video_Funny_Search(Elf *pElf);
 void Elf_Video_Nature_Search(Elf *pElf);
-void Elf_Movie_Search(Elf *pElf);
-void Elf_Movie_Play(Elf *pElf, const Char *pName, U16 nBytes);
-void Elf_Movie_Cartoon_Search(Elf *pElf);
-void Elf_Movie_Cartoon_Play(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_Video_Movie_Search(Elf *pElf);
+void Elf_Video_Movie_Play(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_Video_Movie_Cartoon_Search(Elf *pElf);
+void Elf_Video_Movie_Cartoon_Play(Elf *pElf, const Char *pName, U16 nBytes);
 
 //3D model
 void Elf_3DModel_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
