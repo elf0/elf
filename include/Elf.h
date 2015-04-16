@@ -22,18 +22,23 @@ void Elf_PlayGame(Elf *pElf, const Char *pName, U16 nBytes);
 
 //Picture
 void Elf_Picture_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
-void Elf_Picture_SearchGirls(Elf *pElf);
+void Elf_Picture_SearchFemale(Elf *pElf);
+void Elf_Picture_SearchMale(Elf *pElf);
+void Elf_Picture_SearchPlant(Elf *pElf);
+void Elf_Picture_SearchAnimal(Elf *pElf);
+void Elf_Picture_SearchBuilding(Elf *pElf);
 
 //Video
 void Elf_Video_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
 void Elf_Video_SearchXXX(Elf *pElf);
+void Elf_Video_SearchFunny(Elf *pElf);
 
 //3D model
 void Elf_3DModel_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_3DModel_SearchFemale(Elf *pElf);
+void Elf_3DModel_SearchMale(Elf *pElf);
 void Elf_3DModel_SearchPlant(Elf *pElf);
 void Elf_3DModel_SearchAnimal(Elf *pElf);
-void Elf_3DModel_SearchMale(Elf *pElf);
-void Elf_3DModel_SearchFemale(Elf *pElf);
 void Elf_3DModel_SearchBuilding(Elf *pElf);
 
 //Map
