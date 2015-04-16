@@ -45,9 +45,11 @@ enum ClassReal{
     Human
 };
 
-typedef struct{
-    U64 bReal: 1;
-}Class;
+typedef U64 Class;
+
+//typedef struct{
+//    U64 bReal: 1;
+//}Class;
 
 typedef struct{
     U64 bReal: 1;//Must be 0
@@ -63,6 +65,13 @@ typedef struct{
     U64 bLiving: 1;
     U64 nType: 62;
 }RealClass;
+
+#define CLASS_IS_REAL(CLASS) (CLASS.bReal)
+#define DIGITALCLASS_HAS_IMAGE(CLASS) (CLASS.bImage)
+#define DIGITALCLASS_HAS_AUDIO(CLASS) (CLASS.bAudio)
+#define DIGITALCLASS_HAS_TEXT(CLASS) (CLASS.bText)
+#define DIGITALCLASS_HAS_CODE(CLASS) (CLASS.bCode)
+#define REALCLASS_IS_LIVING(CLASS) (CLASS.bLiving)
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
 void Elf_SetName(Elf *pElf, const Char *pName, U16 nBytes);
