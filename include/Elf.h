@@ -13,6 +13,17 @@ typedef U64 Version;
 typedef U64 ClassId;
 typedef U64 ObjectId;
 
+enum Class{
+    Misc,
+    ComputingDevice,
+    Picture,
+    Video,
+    Audio,
+    Book,
+    House,
+    Car,
+};
+
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
 void Elf_SetName(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_WakeUp(Elf *pElf);
