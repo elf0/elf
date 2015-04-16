@@ -61,6 +61,17 @@ void Elf_Map_Province_Download(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_Map_Country_Download(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_Map_Earth_Download(Elf *pElf);
 
+//Book
+void Elf_Book_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Book_XXX_Search(Elf *pElf);
+void Elf_Book_Math_Search(Elf *pElf);
+void Elf_Book_Physics_Search(Elf *pElf);
+void Elf_Book_Chemistry_Search(Elf *pElf);
+void Elf_Book_Biology_Search(Elf *pElf);
+void Elf_Book_Medicine_Search(Elf *pElf);
+void Elf_Book_Cooking_Search(Elf *pElf);
+void Elf_Novel_Search(Elf *pElf);
+
 //Location
 void Elf_Where(Elf *pElf, const Char *pKey, U16 nBytes);
 void Elf_Locate(Elf *pElf, const Location *pLocation);
