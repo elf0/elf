@@ -21,12 +21,26 @@ enum DigitalType{
     Misc = 0,
     Picture,
     Video,
+    Movie,
+    Cartoon,
     Audio,
     Text,
     PictureText,
     VideoAudio,
     VideoAudioText,
     Book,
+};
+
+enum VideoType{
+    VideoType_Misc,
+    VideoType_ScienceFiction,
+    VideoType_Horror,
+    VideoType_Love,
+    VideoType_War,
+    VideoType_Documentary,
+    VideoType_Music,
+    VideoType_Song,
+    VideoType_Pornographic
 };
 
 enum RealType{
