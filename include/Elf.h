@@ -53,11 +53,12 @@ typedef U64 Class;
 
 typedef struct{
     U64 bReal: 1;//Must be 0
-    U64 bImage: 1;
+    U64 bImage: 1;//Picture, Video
     U64 bAudio: 1;
-    U64 bText: 1;
-    U64 bCode: 1;
-    U64 nType: 59;
+    U64 bText: 1;//UTF-8, UTF-16
+    U64 bCode: 1;//Can be executed by elf
+    U64 bOther: 1;
+    U64 nType: 58;
 }DigitalClass;
 
 typedef struct{
@@ -71,6 +72,7 @@ typedef struct{
 #define DIGITALCLASS_HAS_AUDIO(CLASS) (CLASS.bAudio)
 #define DIGITALCLASS_HAS_TEXT(CLASS) (CLASS.bText)
 #define DIGITALCLASS_HAS_CODE(CLASS) (CLASS.bCode)
+#define DIGITALCLASS_HAS_OTHER(CLASS) (CLASS.bOther)
 #define REALCLASS_IS_LIVING(CLASS) (CLASS.bLiving)
 
 void Elf_Command(Elf *pElf, const Char *pCommand, U16 nBytes);
