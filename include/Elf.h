@@ -61,6 +61,16 @@ typedef struct{
     U64 nType: 58;
 }DigitalClass;
 
+//Example: jpeg
+//bReal = 0
+//bCode = 0
+//bImage = 1
+//bAudio = 0
+//bText = 0
+//bOther = 0
+//nType = x
+
+
 typedef struct{
     U64 bReal: 1;//Must be 1
     U64 bLiving: 1;
