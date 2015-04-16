@@ -34,8 +34,8 @@ void Elf_Video_Funny_Search(Elf *pElf);
 void Elf_Video_Nature_Search(Elf *pElf);
 void Elf_Movie_Search(Elf *pElf);
 void Elf_Movie_Play(Elf *pElf, const Char *pName, U16 nBytes);
-void Elf_Cartoon_Search(Elf *pElf);
-void Elf_Cartoon_Play(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_Movie_Cartoon_Search(Elf *pElf);
+void Elf_Movie_Cartoon_Play(Elf *pElf, const Char *pName, U16 nBytes);
 
 //3D model
 void Elf_3DModel_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
@@ -49,10 +49,10 @@ void Elf_3DModel_Building_Search(Elf *pElf);
 void Elf_Audio_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
 void Elf_Audio_XXX_Search(Elf *pElf);
 void Elf_Audio_Story_Search(Elf *pElf);
-void Elf_Music_Search(Elf *pElf);
-void Elf_Music_Play(Elf *pElf, const Char *pName, U16 nBytes);
-void Elf_Song_Search(Elf *pElf);
-void Elf_Song_Play(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_Audio_Music_Search(Elf *pElf);
+void Elf_Audio_Music_Play(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_Audio_Song_Search(Elf *pElf);
+void Elf_Audio_Song_Play(Elf *pElf, const Char *pName, U16 nBytes);
 
 //Map
 void Elf_Map_Download(Elf *pElf, RectangleF32 *pRect);
@@ -70,8 +70,8 @@ void Elf_Book_Chemistry_Search(Elf *pElf);
 void Elf_Book_Biology_Search(Elf *pElf);
 void Elf_Book_Medicine_Search(Elf *pElf);
 void Elf_Book_Cooking_Search(Elf *pElf);
-void Elf_Novel_Search(Elf *pElf);
-void Elf_Comic_Search(Elf *pElf);
+void Elf_Book_Novel_Search(Elf *pElf);
+void Elf_Book_Comic_Search(Elf *pElf);
 
 //Location
 void Elf_Where(Elf *pElf, const Char *pKey, U16 nBytes);
