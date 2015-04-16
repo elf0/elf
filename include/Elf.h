@@ -85,6 +85,16 @@ typedef struct{
     U64 nType: 62;
 }RealClass;
 
+//Example: Human
+//bReal = 1
+//bLiving = 1
+//nType = x
+
+//Example: Earth
+//bReal = 1
+//bLiving = 0
+//nType = x
+
 #define CLASS_IS_REAL(CLASS) (CLASS.bReal)
 #define DIGITALCLASS_HAS_CODE(CLASS) (CLASS.bCode)
 #define DIGITALCLASS_HAS_IMAGE(CLASS) (CLASS.bImage)
