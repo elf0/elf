@@ -31,6 +31,8 @@ void Elf_Picture_SearchBuilding(Elf *pElf);
 //Video
 void Elf_Video_Upload(Elf *pElf, const Char *pPathName, U16 nBytes);
 void Elf_Video_SearchXXX(Elf *pElf);
+void Elf_Video_SearchMovie(Elf *pElf);
+void Elf_Video_SearchCartoon(Elf *pElf);
 void Elf_Video_SearchFunny(Elf *pElf);
 
 //3D model
