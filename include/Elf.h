@@ -17,7 +17,7 @@ enum Class0{
     Digital = 0, Real = 1
 };
 
-enum ClassDigital{
+enum DigitalType{
     Misc = 0,
     Picture,
     Video,
@@ -29,7 +29,7 @@ enum ClassDigital{
     Book,
 };
 
-enum ClassReal{
+enum RealType{
     Misc = 0,
     StorageDevice,
     ComputingDevice,
