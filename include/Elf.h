@@ -14,19 +14,11 @@ void Elf_Sleep(Elf *pElf);
 void Elf_Connect(Elf *pElf, Net *pNet);
 void Elf_Disconnect(Elf *pElf, Net *pNet);
 void Elf_What(Elf *pElf, const Char *pKey, U16 nBytes);
-void Elf_Where(Elf *pElf, const Char *pKey, U16 nBytes);
-void Elf_Locate(Elf *pElf, const Location *pLocation);
-void Elf_LocateNearest(Elf *pElf, const Char *pKey, U16 nBytes);
+void Elf_Weather(Elf *pElf);
+void Elf_Traffic(Elf *pElf);
 void Elf_PlayMusic(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_PlayMovie(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_PlayGame(Elf *pElf, const Char *pName, U16 nBytes);
-void Elf_Weather(Elf *pElf);
-void Elf_Traffic(Elf *pElf);
-void Elf_Hotel(Elf *pElf);
-void Elf_Restaurant(Elf *pElf);
-void Elf_Toilet(Elf *pElf);
-void Elf_Bank(Elf *pElf);
-void Elf_PoliceStation(Elf *pElf);
 //Picture
 void Elf_UploadPicture(Elf *pElf, const Char *pPathName, U16 nBytes);
 //Video
@@ -34,7 +26,17 @@ void Elf_UploadVideo(Elf *pElf, const Char *pPathName, U16 nBytes);
 //Map
 void Elf_DownloadMap(Elf *pElf, RectangleF32 *pRect);
 void Elf_DownloadMapOfCity(Elf *pElf, const Char *pName, U16 nBytes);
+void Elf_DownloadMapOfProvince(Elf *pElf, const Char *pName, U16 nBytes);
 void Elf_DownloadMapOfCountry(Elf *pElf, const Char *pName, U16 nBytes);
+//Location
+void Elf_Where(Elf *pElf, const Char *pKey, U16 nBytes);
+void Elf_Locate(Elf *pElf, const Location *pLocation);
+void Elf_LocateNearest(Elf *pElf, const Char *pKey, U16 nBytes);
+void Elf_Hotel(Elf *pElf);
+void Elf_Restaurant(Elf *pElf);
+void Elf_Toilet(Elf *pElf);
+void Elf_Bank(Elf *pElf);
+void Elf_PoliceStation(Elf *pElf);
 
 #endif //ELF_H
 
