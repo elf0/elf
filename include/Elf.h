@@ -90,9 +90,14 @@ void Elf_Service_Water(Elf *pElf);
 void Elf_Service_CallGirl(Elf *pElf);
 void Elf_Service_Police(Elf *pElf);
 
+//Buy
+void Elf_Buy_House(Elf *pElf);
+void Elf_Buy_Car(Elf *pElf);
+void Elf_Buy_Electric(Elf *pElf);
+
 //Sell
-void Elf_Sell_Car(Elf *pElf, const Char *pPathName, U16 nBytes);
 void Elf_Sell_House(Elf *pElf, const Char *pPathName, U16 nBytes);
+void Elf_Sell_Car(Elf *pElf, const Char *pPathName, U16 nBytes);
 void Elf_Sell_Electric(Elf *pElf, const Char *pPathName, U16 nBytes);
 
 #endif //ELF_H
