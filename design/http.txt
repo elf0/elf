@@ -16,6 +16,7 @@ file line:
 file request:
   "http://xxx/file/search?key=xxx"
   "http://xxx/file/get?id=xxx&offset=xxx&size=xxx"
+    for node only has file pieces.
   "http://xxx/file/post"
 map line:
   "map: /map"
