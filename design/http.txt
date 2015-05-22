@@ -15,7 +15,7 @@ file line:
   Set web path of file request.
 file request:
   "http://xxx/file/search?key=xxx"
-  "http://xxx/file/get?md5=xxx"
+  "http://xxx/file/get?direct=1&md5=xxx"
   "http://xxx/file/post"
 map line:
   "map: /map"
