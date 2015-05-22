@@ -5,6 +5,11 @@ node:
   All other nodes will read it for self-description of node.
 node file:
   reg: "(\w+:\x20[^.]+\x09)*"
+node line:
+  "node: /node"
+  Set web path of node request.
+node request:
+  "http://xxx/node?type=https&ip=x.x.x.x&port=xx"
 file line:
   "file: /file"
   Set web path of file request.
