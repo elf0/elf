@@ -23,4 +23,5 @@ map line:
   Set web path of map service.
 map service:
   "http://xxx/map/search?key=xxx"
+  "http://xxx/map/add?type=point&name=xxx"
 
