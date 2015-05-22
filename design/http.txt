@@ -12,3 +12,7 @@ file request:
   "http://xxx/file/search?key=xxx"
   "http://xxx/file/get?md5=xxx"
   "http://xxx/file/post"
+map line:
+  "map: /map"
+  Set web path of map request.
+
