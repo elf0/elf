@@ -7,20 +7,20 @@ node file:
   reg: "(\w+:\x20[^.]+\x09)*"
 node line:
   "node: /node"
-  Set web path of node request.
-node request:
+  Set web path of node service.
+node service:
   "http://xxx/node?type=https&ip=x.x.x.x&port=xx"
 file line:
   "file: /file"
-  Set web path of file request.
-file request:
+  Set web path of file service.
+file service:
   "http://xxx/file/search?key=xxx"
   "http://xxx/file/get?id=xxx&offset=xxx&size=xxx"
     for node only has file pieces.
   "http://xxx/file/post"
 map line:
   "map: /map"
-  Set web path of map request.
-map request:
+  Set web path of map service.
+map service:
   "http://xxx/map/search?key=xxx"
 
