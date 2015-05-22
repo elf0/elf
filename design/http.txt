@@ -1,5 +1,7 @@
 http/https:
   a http/https server can be part of elf net.
 node:
-    web root dir must have a "node.elf" file.
-  All other nodes will read it for node self-description.
+    Web root dir must have a "node.elf" file.
+  All other nodes will read it for self-description of node.
+node file:
+  reg: "(\w+:\x20[^.]+\x09)*"
