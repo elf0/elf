@@ -15,4 +15,6 @@ file request:
 map line:
   "map: /map"
   Set web path of map request.
+map request:
+  "http://xxx/map/search?key=xxx"
 
