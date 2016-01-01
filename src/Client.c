@@ -182,7 +182,7 @@ static Bool onPacket(Connection *pConnection, PacketType type, const Byte *pCont
     default:
         return true;
     case pktMessage:{
-        return onMessage(pConnection, (PacketType_Message)uSubType, p, uBytes - 1);
+        return onMessage(pConnection, (PacketType_Message)uSubType, p, uBytes);
     }break;
     }
     return false;
@@ -193,6 +193,7 @@ static Bool onMessage(Connection *pConnection, PacketType_Message type, const By
     memcpy(szMessage, pContent, uBytes);
     szMessage[uBytes];
     Log("Message:\n<=======\n%s\n=======>\n", szMessage);
+    return false;
 }
 
 static Bool Post(Connection* pConnection, PacketType type, U8 uSubType, const Byte *pContent, U16 uBytes){
@@ -216,6 +217,7 @@ static Bool Post(Connection* pConnection, PacketType type, U8 uSubType, const By
     p += uBytes;
     Buffer_Push(pbfrOutput, p - (Byte*)pHeader);
 
+    //    Log("Write: %u\n", Buffer_DataSize(pbfrOutput));
     uv_buf_t uvBuffer = {Buffer_Data(pbfrOutput), Buffer_DataSize(pbfrOutput)};
     int r = uv_write(&pConnection->uvrWrite,
                      (uv_stream_t*)pConnection,
