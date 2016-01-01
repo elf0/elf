@@ -4,17 +4,20 @@ LFLAGS=-luv
 
 all: server client
 
-server: Server.o
-	$(CC) Server.o $(LFLAGS) -o server
+server: Server.o Connection.o
+	$(CC) Server.o Connection.o $(LFLAGS) -o server
 
-Server.o: Server.c Connection.h DPool.h Buffer.h Packet.h
+Server.o: Server.c Connection.h DPool.h Buffer.h Packet.h Type.h
 	$(CC) $(CFLAGS) Server.c
 
-client: Client.o
-	$(CC) Client.o $(LFLAGS) -o client
+client: Client.o Connection.o
+	$(CC) Client.o Connection.o $(LFLAGS) -o client
 
-Client.o: Client.c Connection.h DPool.h Buffer.h Packet.h
+Client.o: Client.c Connection.h DPool.h Buffer.h Packet.h Type.h
 	$(CC) $(CFLAGS) Client.c
+
+Connection.o: Connection.c Connection.h DPool.h Buffer.h Packet.h Type.h
+	$(CC) $(CFLAGS) Connection.c
 
 clean:
 	rm *.o
