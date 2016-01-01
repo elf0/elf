@@ -69,7 +69,7 @@ typedef struct{
     U16 size;
     U8   type;
     U8   uSubType;
-}Packet_Header;
+}Packet;
 
 typedef struct{
     Char szText[1];

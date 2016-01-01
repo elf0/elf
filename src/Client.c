@@ -27,25 +27,42 @@ static Connection *g_pClient = NULL;
 static DPool g_dpBuffers;
 static DPool g_dpConnections;
 static U32 g_uConnections = 0;
+static uv_tty_t g_uvhStdin;
+static Buffer g_bfrStdin;
 
-static void onuvConnect(uv_connect_t *puvrConnect, int status);
-static void onuvAllocate(uv_handle_t *puvhTcp, size_t nSuggestedSize, uv_buf_t *pBuffer);
+static void onuvTcpConnect(uv_connect_t *puvrConnect, int status);
+static void onuvTcpAllocate(uv_handle_t *puvhTcp, size_t nSuggestedSize, uv_buf_t *pBuffer);
 static void onuvTcpRead(uv_stream_t *puvhTcp, ssize_t nRead, const uv_buf_t *pBuffer);
 static void onuvTcpWrite(uv_write_t *uvrWrite, int status);
 static void onuvTcpClose(uv_handle_t *puvhTcp);
 static U32 onTcpInput(Connection *pConnection, const Byte *pData, U32 uBytes);
-static Bool onPacket(Connection *pConnection, PacketType type, const Byte *pContent, U16 uBytes);
+static Bool onPacket(Connection *pConnection, Packet *pPacket);
 static Bool onMessage(Connection *pConnection, PacketType_Message type, const Byte *pContent, U16 uBytes);
 static Bool Post(Connection *pConnection, PacketType type, U8 uSubType, const Byte *pContent, U16 uBytes);
+static void onuvStdinAllocate(uv_handle_t *puvhStdin, size_t nSuggestedSize, uv_buf_t *pBuffer);
+static void onuvStdin(uv_stream_t *puvhTcp, ssize_t nRead, const uv_buf_t *pBuffer);
 
 int main(int argc, const char *argv[]){
     Assert(PacketTypes <= 256, 1, "PacketType");
 
     DPool_Initialize(&g_dpBuffers, BUFFER_SIZE);
+
+    g_puvLoop = uv_default_loop();
+
+    //console
+    Buffer_Initialize(&g_bfrStdin, NULL, NULL);
+    int r = uv_tty_init(g_puvLoop, &g_uvhStdin, 0, 1);
+    Assert(r == 0, 6, "uv_tty_init");
+    //    Log("uv_tty_init end");
+
+    r = uv_read_start((uv_stream_t*)&g_uvhStdin, onuvStdinAllocate, onuvStdin);
+    Assert(r == 0, 6, "uv_read_start");
+    //    Log("uv_read_start end");
+
+    //Tcp
     DPool_Initialize(&g_dpConnections, sizeof(Connection));
     g_pClient = (Connection*)DPool_Pop(&g_dpConnections);
-    g_puvLoop = uv_default_loop();
-    int r = uv_tcp_init(g_puvLoop, (uv_tcp_t*)g_pClient);
+    r = uv_tcp_init(g_puvLoop, (uv_tcp_t*)g_pClient);
     Assert(r == 0, 1, "uv_tcp_init");
     //    r = uv_tcp_keepalive(&g_server, 1, 60);
     //    CHECK(r, "tcp_keepalive");
@@ -55,7 +72,7 @@ int main(int argc, const char *argv[]){
     //    r = uv_tcp_bind(&g_server, (const struct sockaddr*)&address, 0);
     //    Assert(r == 0, 2, "uv_tcp_bind");
 
-    r = uv_tcp_connect(&g_pClient->uvrConnect, (uv_tcp_t*)g_pClient, (const struct sockaddr*)&address, onuvConnect);
+    r = uv_tcp_connect(&g_pClient->uvrConnect, (uv_tcp_t*)g_pClient, (const struct sockaddr*)&address, onuvTcpConnect);
     Assert(r == 0, 3, "uv_tcp_connect");
     Log("Connecting remote port %u\n", DEFAULT_PORT);
     uv_run(g_puvLoop, UV_RUN_DEFAULT);
@@ -65,8 +82,8 @@ int main(int argc, const char *argv[]){
     return 0;
 }
 
-static void onuvConnect(uv_connect_t *puvrConnect, int status){
-    Assert(status == 0, 4, "onuvConnect");
+static void onuvTcpConnect(uv_connect_t *puvrConnect, int status){
+    Assert(status == 0, 4, "onuvTcpConnect");
 
     Connection *pConnection = g_pClient;
     //    Connection *pConnection = (Connection*)DPool_Pop(&g_dpConnections);
@@ -74,14 +91,11 @@ static void onuvConnect(uv_connect_t *puvrConnect, int status){
     Buffer_Initialize(&pConnection->bfrOutput, NULL, NULL);
     pConnection->onInput = onTcpInput;
 
-#define MESSAGE "Hello, world!"
-    Post(pConnection, pktMessage, ptmUtf8, MESSAGE, sizeof(MESSAGE) - 1);
-
-    int r = uv_read_start((uv_stream_t*)pConnection, onuvAllocate, onuvTcpRead);
+    int r = uv_read_start((uv_stream_t*)pConnection, onuvTcpAllocate, onuvTcpRead);
     Assert(r == 0, 6, "uv_read_start");
 }
 
-static void onuvAllocate(uv_handle_t *puvhTcp, size_t nSuggestedSize, uv_buf_t *pBuffer){
+static void onuvTcpAllocate(uv_handle_t *puvhTcp, size_t nSuggestedSize, uv_buf_t *pBuffer){
     Connection* pConnection = (Connection*)puvhTcp;
     Buffer *pbfrInput = &pConnection->bfrInput;
     if(Buffer_Begin(pbfrInput) == NULL){
@@ -97,6 +111,8 @@ static void onuvAllocate(uv_handle_t *puvhTcp, size_t nSuggestedSize, uv_buf_t *
 }
 
 static void onuvTcpRead(uv_stream_t *puvhTcp, ssize_t nRead, const uv_buf_t *pBuffer) {
+    //Log("onuvTcpRead(%ld)\n", nRead);
+
     Connection *pConnection = (Connection*)puvhTcp;
     Buffer *pbfrInput = &pConnection->bfrInput;
     //    Assert(pConnection->pInput != NULL, 6, "onuvTcpRead");
@@ -105,6 +121,7 @@ static void onuvTcpRead(uv_stream_t *puvhTcp, ssize_t nRead, const uv_buf_t *pBu
         Buffer_Push(pbfrInput, nRead);
         U32 uDataSize = Buffer_DataSize(pbfrInput);
         U32 nProcessed = pConnection->onInput(pConnection, Buffer_Data(pbfrInput), uDataSize);
+        //Log("nProcessed(%u)\n", nProcessed);
         Buffer_Pop(pbfrInput, nProcessed);
         if(nProcessed < uDataSize){
             Buffer_ForwardData(pbfrInput);
@@ -130,6 +147,8 @@ static void onuvTcpRead(uv_stream_t *puvhTcp, ssize_t nRead, const uv_buf_t *pBu
 }
 
 static void onuvTcpWrite(uv_write_t *uvrWrite, int status){
+    //Log("onuvTcpWrite(%d)\n", status);
+
     Connection *pConnection = ContainerOf(uvrWrite, uvrWrite, Connection);
     Buffer *pbfrOutput = &pConnection->bfrOutput;
     //    Buffer_Pop(pbfrOutput, Buffer_DataSize(pbfrOutput));
@@ -150,21 +169,18 @@ static U32 onTcpInput(Connection *pConnection, const Byte *pData, U32 uBytes){
     //    Log("========\n%s\n", pData);
     const Byte *pEnd = pData + uBytes;
     const Byte *p = pData;
-    const Byte *pSizeEnd;
+    const Byte *pHeaderEnd;
     const Byte *pContentEnd;
-    U32 uContent;
-    PacketType type;
-    while((pSizeEnd = p + 2) < pEnd){
-        uContent = *(U16*)p;
-        p = pSizeEnd;
-        type = *p++;
-        pContentEnd = p + uContent;
+    Packet *pPacket;
+    while((pHeaderEnd = p + sizeof(Packet)) <= pEnd){
+        pPacket = (Packet*)p;
+        pContentEnd = pHeaderEnd + pPacket->size;
         if(pContentEnd > pEnd){
-            p -= 3;
+            p -= sizeof(Packet);
             break;
         }
 
-        if(onPacket(pConnection, type, p, uContent)){
+        if(onPacket(pConnection, pPacket)){
             uv_close((uv_handle_t*)pConnection, onuvTcpClose);
             //Free input buffer
             return uBytes;
@@ -175,14 +191,14 @@ static U32 onTcpInput(Connection *pConnection, const Byte *pData, U32 uBytes){
     return p - pData;
 }
 
-static Bool onPacket(Connection *pConnection, PacketType type, const Byte *pContent, U16 uBytes){
-    const Byte *p = pContent;
-    U8 uSubType = *p++;
-    switch(type){
+static Bool onPacket(Connection *pConnection, Packet *pPacket){
+    const Byte *pContent = (Byte*)pPacket + sizeof(Packet);
+    U16 uContent = pPacket->size;
+    switch(pPacket->type){
     default:
         return true;
     case pktMessage:{
-        return onMessage(pConnection, (PacketType_Message)uSubType, p, uBytes);
+        return onMessage(pConnection, pPacket->uSubType, pContent, uContent);
     }break;
     }
     return false;
@@ -191,8 +207,8 @@ static Bool onPacket(Connection *pConnection, PacketType type, const Byte *pCont
 static Bool onMessage(Connection *pConnection, PacketType_Message type, const Byte *pContent, U16 uBytes){
     char szMessage[65536];
     memcpy(szMessage, pContent, uBytes);
-    szMessage[uBytes];
-    Log("Message:\n<=======\n%s\n=======>\n", szMessage);
+    szMessage[uBytes] = 0;
+    Log("Server:\n========\n\t%s\n", szMessage);
     return false;
 }
 
@@ -208,14 +224,14 @@ static Bool Post(Connection* pConnection, PacketType type, U8 uSubType, const By
         return false;
 
     Byte *p = Buffer_Tail(pbfrOutput);
-    Packet_Header *pHeader = (Packet_Header*)p;
-    pHeader->size = uBytes;
-    pHeader->type = type;
-    pHeader->uSubType = uSubType;
-    p += sizeof(Packet_Header);
+    Packet *pPacket = (Packet*)p;
+    pPacket->size = uBytes;
+    pPacket->type = type;
+    pPacket->uSubType = uSubType;
+    p += sizeof(Packet);
     memcpy(p, pContent, uBytes);
     p += uBytes;
-    Buffer_Push(pbfrOutput, p - (Byte*)pHeader);
+    Buffer_Push(pbfrOutput, p - (Byte*)pPacket);
 
     //    Log("Write: %u\n", Buffer_DataSize(pbfrOutput));
     uv_buf_t uvBuffer = {Buffer_Data(pbfrOutput), Buffer_DataSize(pbfrOutput)};
@@ -226,4 +242,32 @@ static Bool Post(Connection* pConnection, PacketType type, U8 uSubType, const By
                      onuvTcpWrite);
     Assert(r == 0, 6, "uv_write");
     return true;
+}
+
+static void onuvStdinAllocate(uv_handle_t *puvhStdin, size_t nSuggestedSize, uv_buf_t *pBuffer){
+    Buffer *pbfrInput = &g_bfrStdin;
+    if(Buffer_Begin(pbfrInput) == NULL){
+        Byte *pBegin = DPool_Pop(&g_dpBuffers);
+        Buffer_Initialize(pbfrInput, pBegin, pBegin + DPool_Size(&g_dpBuffers));
+    }
+
+    pBuffer->base = (char*)Buffer_Tail(pbfrInput);
+    pBuffer->len = Buffer_TailSize(pbfrInput);
+}
+
+static void onuvStdin(uv_stream_t *puvhTcp, ssize_t nRead, const uv_buf_t *pBuffer){
+    //    Connection *pConnection = ContainerOf(uvrStdin, uvrStdin, Connection);
+    Connection *pConnection = g_pClient;
+    //    Log("onuvStdin: %ld\n", );
+    if(nRead > 0){
+        char szInput[65536];
+        memcpy(szInput, pBuffer->base, nRead);
+        szInput[nRead] = 0;
+        //        Log(">>%s", szInput);
+        Post(pConnection, pktMessage, ptmUtf8, szInput, nRead - 1);
+    }
+    DPool_Push(&g_dpBuffers, Buffer_Begin(&g_bfrStdin));
+    Buffer_Initialize(&g_bfrStdin, NULL, NULL);
+    //#define MESSAGE "Hello, world!"
+    //    Post(pConnection, pktMessage, ptmUtf8, MESSAGE, sizeof(MESSAGE) - 1);
 }
